@@ -19,6 +19,8 @@ django-admin startproject tredmark_app
 
 cd tredmark_app/
 
+pip install -r requirements.txt
+
 python manage.py startapp tredmark_webapp
 
 python manage.py runserver
