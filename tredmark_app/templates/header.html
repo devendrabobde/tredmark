@@ -48,6 +48,12 @@
         <div class="navbar-nav ms-auto py-0">
             <a href="/" class="nav-item nav-link active">Home</a>
             <a href="{% url 'register' %}" class="nav-item nav-link">Sign Up</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="nav-item nav-link">Sign Out</a>
+                <a href="#" class="nav-item nav-link">Welcome, {{user.username}}</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="nav-item nav-link">Sign In</a>
+            {% endif %}
             <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
             <a href="{% url 'service' %}" class="nav-item nav-link">Service</a>
             <div class="nav-item dropdown">
