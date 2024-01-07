@@ -3,32 +3,47 @@ from .forms import NewUserForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from django.contrib import messages
+from django.core.mail import send_mail
+from .models import Contact
 
 # Create your views here.
 
 def homepage(request):
-  return render(request, 'index.html', context={})
+  	return render(request, 'index.html', context={})
 
 def about(request):
-  return render(request, 'about.html', context={})
+  	return render(request, 'about.html', context={})
 
 def appointment(request):
-  return render(request, 'appointment.html', context={})
+  	return render(request, 'appointment.html', context={})
 
 def contact(request):
-  return render(request, 'contact.html', context={})
+	if request.method == 'POST':
+		contact = Contact()
+		name = request.POST.get('name')
+		email = request.POST.get('email')
+		subject = request.POST.get('subject')
+		message = request.POST.get('message')
+		contact.name = name
+		contact.email = email
+		contact.subject = subject
+		contact.message = message
+		contact.save()
+		messages.success(request, "Thank you for contacting us." )
+		return redirect("/")
+	return render (request, 'contact.html', context={})
 
 def price(request):
-  return render(request, 'price.html', context={})
+  	return render(request, 'price.html', context={})
 
 def service(request):
-  return render(request, 'service.html', context={})
+  	return render(request, 'service.html', context={})
 
 def team(request):
-  return render(request, 'team.html', context={})
+  	return render(request, 'team.html', context={})
 
 def testimonial(request):
-  return render(request, 'testimonial.html', context={})
+  	return render(request, 'testimonial.html', context={})
 
 def register_request(request):
 	if request.method == "POST":

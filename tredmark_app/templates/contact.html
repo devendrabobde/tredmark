@@ -6,7 +6,7 @@
 <body>
     {% include "header.html" %}
 
-
+    {% block content %}
     <!-- Hero Start -->
     <div class="container-fluid bg-primary py-5 hero-header mb-5">
         <div class="row py-3">
@@ -55,19 +55,20 @@
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-6 wow slideInUp" data-wow-delay="0.3s">
-                    <form>
+                    <form method="POST">
+                        {% csrf_token %}
                         <div class="row g-3">
                             <div class="col-12">
-                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Your Name" style="height: 55px;">
+                                <input name="name" type="text" class="form-control border-0 bg-light px-4" placeholder="Your Name" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <input type="email" class="form-control border-0 bg-light px-4" placeholder="Your Email" style="height: 55px;">
+                                <input name="email" type="email" class="form-control border-0 bg-light px-4" placeholder="Your Email" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Subject" style="height: 55px;">
+                                <input name="subject" type="text" class="form-control border-0 bg-light px-4" placeholder="Subject" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control border-0 bg-light px-4 py-3" rows="5" placeholder="Message"></textarea>
+                                <textarea name="message" class="form-control border-0 bg-light px-4 py-3" rows="5" placeholder="Message"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
@@ -85,7 +86,7 @@
         </div>
     </div>
     <!-- Contact End -->
-
+    {% endblock content %}
 
     <!-- Newsletter Start -->
     <div class="container-fluid position-relative pt-5 wow fadeInUp" data-wow-delay="0.1s" style="z-index: 1;">
