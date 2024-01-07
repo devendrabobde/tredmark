@@ -3,7 +3,8 @@ tredmark
 
 # Pre requisites
 
-Python, virtual env and postgres DB must be installed
+Python, virtual env and postgres DB must be installed .
+Please follow following steps :
 
 git clone git@github.com:devendrabobde/tredmark.git
 
