@@ -50,3 +50,13 @@ python manage.py runserver
 python manage.py createsuperuser {admin, admin@example.com, admin@123}
 
 python manage.py runserver
+
+### Run using docker compose
+
+Make sure docker and docker compose is installed and update project directory in docker copose, and docker file and run bellow commands
+
+Verify any images or containers are ruuning or not : docker ps -a;docker images -a
+
+run app : sudo docker-compose up --build
+
+Kill all images and containers : sudo docker-compose down -v ; sudo docker rm -vf $(sudo docker ps -aq) ; sudo docker rmi -f $(sudo docker images -aq)

@@ -91,11 +91,11 @@ WSGI_APPLICATION = 'tredmark_app.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "tredmark",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "NAME": os.environ.get('PG_DB','tredmark'),
+        "USER": os.environ.get('PG_USER','postgres'),
+        "PASSWORD": os.environ.get('PG_PASSWORD','postgres'),
+        "HOST": os.environ.get('PG_HOST','localhost'), # uses the container if set, otherwise it runs locally
+        "PORT": os.environ.get('PG_PORT','5432'),
     }
 }
 
