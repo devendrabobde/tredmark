@@ -22,4 +22,4 @@ COPY . .
 EXPOSE 8000
 
 # entrypoint to run the django.sh file
-ENTRYPOINT ["/bin/sh", "/home/devendra/projects/tredmark/tredmark_app/django.sh"]
+ENTRYPOINT ["/bin/sh", "/home/devendra/projects/tredmark/tredmark_app/entrypoint.sh"]
