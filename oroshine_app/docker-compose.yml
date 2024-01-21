@@ -3,6 +3,7 @@ version: "3.9"
 services:
   oroshineapp:
     container_name: oroshineapp
+    image : harshalbhoyar14/oroshine_app
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     ports:
