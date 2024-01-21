@@ -29,9 +29,9 @@ def contact(request):
 		contact.subject = subject
 		contact.message = message
 		contact.save()
-		subject_to_send = "Welcome to Tredmark Dental Care"
+		subject_to_send = "Welcome to OroShine Dental Care"
 		message_to_send = "Our team will contact you within 24hrs."
-		email_from = "info@tredmarkdentalcare.com"
+		email_from = "info@oroshinedentalcare.com"
 		recipient_list = email
 		send_mail(subject_to_send, message_to_send, email_from, [recipient_list])
 		messages.success(request, "Thank you for contacting us." )

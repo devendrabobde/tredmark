@@ -1,8 +1,8 @@
 version: "3.9"
 
 services:
-  tredmarkapp:
-    container_name: tredmarkapp
+  oroshineapp:
+    container_name: oroshineapp
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     ports:
@@ -10,7 +10,7 @@ services:
     environment:
       - PG_USER=postgres
       - PG_PASSWORD=postgres
-      - PG_DB=tredmark
+      - PG_DB=oroshine
       - PG_PORT=5432
       - PG_HOST=db
     depends_on:
@@ -20,7 +20,7 @@ services:
     container_name: db
     image: postgres:15
     environment:
-      - POSTGRES_DB=tredmark
+      - POSTGRES_DB=oroshine
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:

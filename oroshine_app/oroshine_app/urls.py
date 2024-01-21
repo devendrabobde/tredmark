@@ -1,5 +1,5 @@
 """
-URL configuration for tredmark_app project.
+URL configuration for oroshine_app project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("tredmark_webapp.urls"))
+    path("", include("oroshine_webapp.urls"))
 ]
