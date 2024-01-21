@@ -4,7 +4,7 @@ services:
   oroshineapp:
     container_name: oroshineapp
     image : harshalbhoyar14/oroshine_app
-    build: .
+    # build: .
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
