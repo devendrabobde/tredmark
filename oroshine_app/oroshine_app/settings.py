@@ -14,24 +14,6 @@ import os
 
 from pathlib import Path
 
-# settings.py
-
-import requests
-
-# Function to get public IP address dynamically
-def get_public_ip():
-    try:
-        # Use a service like httpbin to get your public IP
-        response = requests.get('https://httpbin.org/ip')
-        return response.json().get('origin', 'localhost')
-    except Exception as e:
-        print(f"Error getting public IP: {e}")
-        return 'localhost'
-
-# Dynamically set ALLOWED_HOSTS
-ALLOWED_HOSTS = [get_public_ip()]
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,8 +27,8 @@ SECRET_KEY = 'django-insecure-gxc@%s4*n+rv@md$+d#@4s7(1i@_o5g9^t5aiv+t)_0pt32gou
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost' , '127.0.0.1' , '0.0.0.0']
-# ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ['localhost' , '127.0.0.1' , '0.0.0.0']
+ALLOWED_HOSTS = ["*"]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
