@@ -14,6 +14,24 @@ import os
 
 from pathlib import Path
 
+# settings.py
+
+import requests
+
+# Function to get public IP address dynamically
+def get_public_ip():
+    try:
+        # Use a service like httpbin to get your public IP
+        response = requests.get('https://httpbin.org/ip')
+        return response.json().get('origin', 'localhost')
+    except Exception as e:
+        print(f"Error getting public IP: {e}")
+        return 'localhost'
+
+# Dynamically set ALLOWED_HOSTS
+ALLOWED_HOSTS = [get_public_ip()]
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
